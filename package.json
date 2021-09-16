@@ -1,0 +1,26 @@
+{
+  "name": "newcoin.pools-js",
+  "version": "1.0.0",
+  "description": "js module to fetch data from the newcoin.pools smart contract",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:newlife2/newcoin/newcoin.pools-js.git"
+  },
+  "keywords": [
+    "newcoin",
+    "newcoin.pools",
+    "eosio",
+    "blockchain",
+    "newlife"
+  ],
+  "author": "Avm07",
+  "license": "MIT",
+  "devDependencies": {
+    "node-fetch": "^3.0.0",
+    "typescript": "^4.4.3"
+  }
+}
