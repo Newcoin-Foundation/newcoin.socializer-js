@@ -73,7 +73,7 @@ export default class RpcApi {
         code: this.pools_contract,
         scope: this.pools_contract,
         table: "gates",
-        table_key: id,
+        table_key: opts.id,
       });
     } else if (opts.creator) {
       return this.getTableRows({
@@ -117,7 +117,7 @@ export default class RpcApi {
         code: this.pools_contract,
         scope: this.pools_contract,
         table: "moods",
-        table_key: id,
+        table_key: opts.id,
       });
     } else if (opts.creator) {
       return this.getTableRows({
@@ -161,7 +161,7 @@ export default class RpcApi {
         code: this.pools_contract,
         scope: this.pools_contract,
         table: "nfts",
-        table_key: id,
+        table_key: opts.id,
       });
     } else if (opts.creator) {
       return this.getTableRows({
@@ -205,7 +205,7 @@ export default class RpcApi {
         code: this.pools_contract,
         scope: this.pools_contract,
         table: "powerups",
-        table_key: id,
+        table_key: opts.id,
       });
     } else if (opts.creator) {
       return this.getTableRows({
@@ -294,87 +294,88 @@ export default class RpcApi {
     }
   }
 
-   async getEcosystemSponcor(opts: SponcorPayload): Promise<any> {
-        if (opts.owner) {
-        return this.getTableRows({
-            code: this.pools_contract,
-            scope: opts.pool_id,
-            table: "ecosyssprs",
-            table_key: opts.owner,
-        });
-        } else {
-        return this.getTableRows({
-            code: this.pools_contract,
-            scope: opts.pool_id,
-            table: "ecosyssprs",
-        });
-       }
+  async getEcosystemSponcor(opts: SponcorPayload): Promise<any> {
+    if (opts.owner) {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "ecosyssprs",
+        table_key: opts.owner,
+      });
+    } else {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "ecosyssprs",
+      });
     }
+  }
 
-    async getGateSponcor(opts: SponcorPayload): Promise<any> {
-        if (opts.owner) {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "gatesprs",
-                table_key: opts.owner,
-            });
-        } else {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "gatesprs",
-            });
-        }
+  async getGateSponcor(opts: SponcorPayload): Promise<any> {
+    if (opts.owner) {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "gatesprs",
+        table_key: opts.owner,
+      });
+    } else {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "gatesprs",
+      });
     }
+  }
 
-    async getMoodSponcor(opts: SponcorPayload): Promise<any> {
-        if (opts.owner) {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "moodsprs",
-                table_key: opts.owner,
-            });
-        } else {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "moodsprs",
-            });
-        }
+  async getMoodSponcor(opts: SponcorPayload): Promise<any> {
+    if (opts.owner) {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "moodsprs",
+        table_key: opts.owner,
+      });
+    } else {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "moodsprs",
+      });
     }
+  }
 
-    async getNFTSponcor(opts: SponcorPayload): Promise<any> {
-        if (opts.owner) {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "nftsprs",
-                table_key: opts.owner,
-            });
-        } else {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "nftsprs",
-            });
-        }
+  async getNFTSponcor(opts: SponcorPayload): Promise<any> {
+    if (opts.owner) {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "nftsprs",
+        table_key: opts.owner,
+      });
+    } else {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "nftsprs",
+      });
     }
+  }
 
-    async getPowerUpSponcor(opts: SponcorPayload): Promise<any> {
-        if (opts.owner) {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "powerupsprs",
-                table_key: opts.owner,
-            });
-        } else {
-            return this.getTableRows({
-                code: this.pools_contract,
-                scope: opts.pool_id,
-                table: "powerupsprs",
-            });
-        }
+  async getPowerUpSponcor(opts: SponcorPayload): Promise<any> {
+    if (opts.owner) {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "powerupsprs",
+        table_key: opts.owner,
+      });
+    } else {
+      return this.getTableRows({
+        code: this.pools_contract,
+        scope: opts.pool_id,
+        table: "powerupsprs",
+      });
     }
+  }
+}
