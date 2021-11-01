@@ -10,6 +10,7 @@ export interface GetCurrencyBalance {
 }
 
 export interface GetTableRowsPayload {
+  json: boolean;
   code: string;
   scope: string;
   table: string;
