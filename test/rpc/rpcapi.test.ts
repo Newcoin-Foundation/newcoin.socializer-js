@@ -18,9 +18,9 @@ describe("RPC API", () => {
   const examplePool: PoolPayload = {
     id: "1",
     code: "CA",
-    owner: "nco",
+    owner: "testalice.io",
     description_sha256:
-      "b3aed1b471c967e45fac0596f1240c68ca27978faf0e304cda500774752ba0a4",
+      "dfddb9d6cf44c9a15c672e186248035b782e1bbfdd332352311983c3ab635ca5",
   };
 
   const exampleWhiteList: WhiteListPayload = {
@@ -50,6 +50,16 @@ describe("RPC API", () => {
 
   it("fetch pool by owner:" + examplePool.owner, async () => {
     const response = await api.getPoolByOwner(examplePool);
+    const json = await response.json();
+    console.log(json);
+    // expect(pool).to.deep.equal(examplePool);
+  }).timeout(2000);
+
+  it("fetch pool by owner:testalice.io", async () => {
+    const testAlice: PoolPayload = {
+      owner: 'testalice.io'
+    }
+    const response = await api.getPoolByOwner(testAlice);
     const json = await response.json();
     console.log(json);
     // expect(pool).to.deep.equal(examplePool);
