@@ -1,4 +1,4 @@
-# AtomicAssets JavaScript
+# Newcoin Pools JavaScript
 
 JS Library to read data from newcoin.pools.
 
