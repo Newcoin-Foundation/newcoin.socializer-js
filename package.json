@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:newlife2/newcoin/newcoin.pools-js.git"
+    "url": "git+https://github.com/Newcoin-Foundation/newcoin.pools-js.git"
   },
   "keywords": [
     "newcoin",
@@ -23,6 +23,10 @@
   ],
   "author": "Avm07",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Newcoin-Foundation/newcoin.pools-js/issues"
+  },
+  "homepage": "https://github.com/Newcoin-Foundation/newcoin.pools-js#readme",
   "devDependencies": {
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",
