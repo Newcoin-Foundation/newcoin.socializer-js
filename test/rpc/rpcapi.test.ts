@@ -28,11 +28,28 @@ describe("RPC API", () => {
     user: "nco",
   };
 
-  const ncoCurrency: GetCurrencyBalance = {
-    code: "eosio.token",
+  const exampleCurrency: GetCurrencyBalance = {
+    code: "pools.nco",
     account: "nco",
-    symbol: "4,NCO",
+    symbol: "CA",
   };
+
+  const exampleStats: GetCurrencyStats = {
+    code: "pools.nco",
+    symbol: "CA",
+  };
+
+  it("fetch CA token balance by account:" + exampleCurrency.account, async () => {
+    const response = await api.getCurrencyBalance(exampleCurrency);
+    const json = await response.json();
+    console.log(json);
+  }).timeout(2000);
+
+  it("fetch CA stats:", async () => {
+    const response = await api.getCurrencyStats(exampleStats);
+    const json = await response.json();
+    console.log(json);
+  }).timeout(2000);
 
   it("fetch pool by id:" + examplePool.id, async () => {
     const response = await api.getPool(examplePool);
