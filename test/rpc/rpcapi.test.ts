@@ -17,7 +17,7 @@ describe("RPC API", () => {
 
   const examplePool: PoolPayload = {
     id: "1",
-    code: "CA",
+    code: "DA",
     owner: "testalice.io",
     description_sha256:
       "dfddb9d6cf44c9a15c672e186248035b782e1bbfdd332352311983c3ab635ca5",
@@ -31,21 +31,21 @@ describe("RPC API", () => {
   const exampleCurrency: GetCurrencyBalance = {
     code: "pools.nco",
     account: "nco",
-    symbol: "CA",
+    symbol: "DA",
   };
 
   const exampleStats: GetCurrencyStats = {
     code: "pools.nco",
-    symbol: "CA",
+    symbol: "DA",
   };
 
-  it("fetch CA token balance by account:" + exampleCurrency.account, async () => {
+  it("fetch DA token balance by account:" + exampleCurrency.account, async () => {
     const response = await api.getCurrencyBalance(exampleCurrency);
     const json = await response.json();
     console.log(json);
   }).timeout(2000);
 
-  it("fetch CA stats:", async () => {
+  it("fetch DA stats:", async () => {
     const response = await api.getCurrencyStats(exampleStats);
     const json = await response.json();
     console.log(json);
@@ -72,9 +72,9 @@ describe("RPC API", () => {
     // expect(pool).to.deep.equal(examplePool);
   }).timeout(2000);
 
-  it("fetch pool by owner:testalice.io", async () => {
+  it("fetch pool by owner:life.nco", async () => {
     const testAlice: PoolPayload = {
-      owner: 'testalice.io'
+      owner: 'life.nco'
     }
     const response = await api.getPoolByOwner(testAlice);
     const json = await response.json();

@@ -1,6 +1,6 @@
 {
   "name": "@newcoin-foundation/newcoin.pools-js",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "js module to fetch data from the newcoin.pools smart contract",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:web": "webpack --config webpack.prod.js",
     "build": "yarn run build:npm && yarn run build:web",
     "test": "mocha -r ts-node/register test/**/*.test.ts",
-    "publish": "yarn publish"
+    "publish": "yarn build && yarn publish"
   },
   "repository": {
     "type": "git",
