@@ -1,6 +1,6 @@
-# Newcoin Pools JavaScript
+# newcoin.pools-js
 
-JS Library to read data from newcoin.pools.
+JS Library to read data from newcoin.pools smart contract.
 
 ## Usage
 
@@ -17,24 +17,20 @@ npm i @newcoin-foundation/newcoin.pools-js
 Web library can be found in the [dist] folder
 
 ```javascript
-// standard import
-const {RpcApi} = require("newcoinpools");
+// Standard import
+const { ActionGenerator, RpcApi } = require("newcoinpools");
+
 // ES6 import
-import {RpcApi} from "newcoinpools"
+import { ActionGenerator, RpcApi } from "newcoinpools"
+```
 
 ## Documentation
 
-* **RpcAPI**: uses only native nodeos calls
+### RpcAapi
+Uses only native nodeos calls to chain api plugin.
 
-#### RpcActionGenerator
+### ActionGenerator
 
-The RPC API has an `action` attribute which contains a helper class to construct contract actions 
-which can be pushed on chain with eosjs. 
+Helper class to construct contract actions  which can be pushed on chain with eosjs. 
 
 Detailed information about each action can be found [here](https://github.com/pinknetworkx/atomicassets-contract/wiki/Actions) 
- 
-#### Types
-
-These classes represent table rows of the contract and consist of getter methods
-which return the deserialized data.
-The method `toObject` returns a JavaScript object representation of the class.

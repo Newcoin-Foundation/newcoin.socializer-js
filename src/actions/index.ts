@@ -39,11 +39,19 @@ export class ActionGenerator {
   async createPool(
     authorization: EosioAuthorizationObject[],
     owner: string,
-    description: string
+    description: string,
+    ticker: string,
+    is_inflatable: boolean,
+    is_deflatable: boolean,
+    is_treasury: boolean
   ): Promise<EosioActionObject[]> {
     return this._pack(this.contract, authorization, "createpool", {
       owner,
-      description
+      description,
+      ticker,
+      is_inflatable,
+      is_deflatable,
+      is_treasury
     });
   }
 
@@ -53,6 +61,17 @@ export class ActionGenerator {
     user: string
   ): Promise<EosioActionObject[]> {
     return this._pack(this.contract, authorization, "addwhlst", {
+      pool_id,
+      user
+    });
+  }
+
+  async rmvFromWhiteList(
+    authorization: EosioAuthorizationObject[],
+    pool_id: number,
+    user: string
+  ): Promise<EosioActionObject[]> {
+    return this._pack(this.contract, authorization, "rmvwhlst", {
       pool_id,
       user
     });

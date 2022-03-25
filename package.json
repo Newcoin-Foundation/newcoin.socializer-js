@@ -1,6 +1,6 @@
 {
   "name": "@newcoin-foundation/newcoin.pools-js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "js module to fetch data from the newcoin.pools smart contract",
   "main": "dist/index.js",
   "scripts": {
