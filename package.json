@@ -1,7 +1,7 @@
 {
-  "name": "@newcoin-foundation/newcoin.pools-js",
+  "name": "@newcoin-foundation/newcoin.socializer-js",
   "version": "2.0.2",
-  "description": "js module to fetch data from the newcoin.pools smart contract",
+  "description": "js module to fetch data from the newcoin.socializer smart contract",
   "main": "dist/index.js",
   "scripts": {
     "build:npm": "tsc",
@@ -12,20 +12,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Newcoin-Foundation/newcoin.pools-js.git"
+    "url": "git+https://github.com/Newcoin-Foundation/newcoin.socializer-js.git"
   },
   "keywords": [
     "newcoin",
-    "newcoin.pools",
+    "newcoin.socializer",
     "blockchain",
     "newlife"
   ],
-  "author": "Avm07",
+  "author": "NatPDeveloper",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Newcoin-Foundation/newcoin.pools-js/issues"
+    "url": "https://github.com/Newcoin-Foundation/newcoin.socializer-js/issues"
   },
-  "homepage": "https://github.com/Newcoin-Foundation/newcoin.pools-js#readme",
+  "homepage": "https://github.com/Newcoin-Foundation/newcoin.socializer-js#readme",
   "devDependencies": {
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",

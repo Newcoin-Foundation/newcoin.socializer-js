@@ -1,14 +1,3 @@
-export interface GetCurrencyStats {
-  code: string;
-  symbol: string;
-}
-
-export interface GetCurrencyBalance {
-  code: string;
-  account: string;
-  symbol?: string;
-}
-
 export interface GetTableRowsPayload {
   json: boolean;
   code: string;

@@ -9,96 +9,43 @@ export type EosioActionObject = {
 
 /* tslint:disable:variable-name */
 
+import * as types from "../types/index";
+
 export class ActionGenerator {
   constructor(readonly contract: string, readonly token_contract: string) {}
 
-  async open(
+  async add(
+    authorization: EosioAuthorizationObject[],
+    account: string,
+    supported_symbols: types.ExtendedSymbols
+  ): Promise<EosioActionObject[]> {
+    return this._pack(this.contract, authorization, "add", {
+      account,
+      supported_symbols
+    });
+  }
+
+  async create(
+    authorization: EosioAuthorizationObject[],
+    creator: string,
+    payouts: types.Payouts,
+    supported_symbols: types.ExtendedSymbols
+  ): Promise<EosioActionObject[]> {
+    return this._pack(this.contract, authorization, "create", {
+      creator,
+      payouts,
+      supported_symbols
+    });
+  }
+
+  async withdraw(
     authorization: EosioAuthorizationObject[],
     owner: string,
-    symbol: string,
-    payer: string
-  ): Promise<EosioActionObject[]> {
-    return this._pack(this.contract, authorization, "open", {
-      owner,
-      symbol,
-      payer
-    });
-  }
-
-  async close(
-    authorization: EosioAuthorizationObject[],
-    owner: string,
-    symbol: string
-  ): Promise<EosioActionObject[]> {
-    return this._pack(this.contract, authorization, "close", {
-      owner,
-      symbol
-    });
-  }
-
-  async createPool(
-    authorization: EosioAuthorizationObject[],
-    owner: string,
-    description: string,
-    ticker: string,
-    is_inflatable: boolean,
-    is_deflatable: boolean,
-    is_treasury: boolean
-  ): Promise<EosioActionObject[]> {
-    return this._pack(this.contract, authorization, "createpool", {
-      owner,
-      description,
-      ticker,
-      is_inflatable,
-      is_deflatable,
-      is_treasury
-    });
-  }
-
-  async addToWhiteList(
-    authorization: EosioAuthorizationObject[],
-    pool_id: number,
-    user: string
-  ): Promise<EosioActionObject[]> {
-    return this._pack(this.contract, authorization, "addwhlst", {
-      pool_id,
-      user
-    });
-  }
-
-  async rmvFromWhiteList(
-    authorization: EosioAuthorizationObject[],
-    pool_id: number,
-    user: string
-  ): Promise<EosioActionObject[]> {
-    return this._pack(this.contract, authorization, "rmvwhlst", {
-      pool_id,
-      user
-    });
-  }
-
-  async stakeToPool(
-    authorization: EosioAuthorizationObject[],
-    from: string,
-    quantity: string,
-    pool_id: string
-  ): Promise<EosioActionObject[]> {
-    return this._pack(this.token_contract, authorization, "transfer", {
-      from: from,
-      to: this.contract,
-      quantity: quantity,
-      memo: "pool:" + pool_id,
-    });
-  }
-
-  async withdrawFromPool(
-    authorization: EosioAuthorizationObject[],
-    owner: string,
-    quantity: string
+    symbols: types.ExtendedSymbols
   ): Promise<EosioActionObject[]> {
     return this._pack(this.contract, authorization, "withdraw", {
       owner,
-      quantity
+      symbols
     });
   }
 

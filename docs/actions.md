@@ -1,123 +1,161 @@
 ***
 
-# open
+# add
 
 ### Parameters:
-* @param owner - owner of account balance    
-* @param symbol - token symbol
-* @param payer - payer of RAM       
+* @param account - account to add supported symbols
+* @param supported_symbols - array of symbols to add
 
 ### Description:
 
-Creates 0 balance account in balances table.
+Add supported symbol(s) to socializer.
 
 ### Required Authorization:
 
 **payer** account.
 
-***
+### Zeus Example:
 
-# close
-
-### Parameters:
-
-* @param owner - owner of account balance    
-* @param symbol - token symbol
-
-### Description:
-
-Close 0 balance account in balances table.
-
-### Required Authorization:
-
-**owner** account.
-
-***
-
-# createPool
-
-### Parameters:
-
-* @param owner - owner of account balance    
-* @param description - token symbol
-* @param ticker - token symbol
-* @param is_inflatable - token symbol
-* @param is_deflatable - token symbol
-* @param is_treasury - token symbol
-
-### Description:
-
-Create sub pool in pools table(token created automatic).
-
-### Required Authorization:
-
-**owner** account.
+```
+await socializerContractInstance.add(
+{
+    account:creator,
+    payouts: [
+        {
+            account: accounts[0],
+            percentage: '0.5' 
+        },
+        {
+            account: accounts[1],
+            percentage: '0.5' 
+        }
+    ],
+    supported_symbols: [
+        {sym:"4,NCO",contract:"eosio.token"}
+    ]
+}, {
+    authorization: `${creator}@active`,
+    broadcast: true,
+    sign: true,
+    keyProvider: [keys[0].active.privateKey],
+});
+```
 
 ***
 
-# addToWhiteList
+# create
 
 ### Parameters:
-
-* @param pool_id - owner of account balance    
-* @param user - token symbol
+* @param creator - account to add supported symbols
+* @param payouts - array of payouts
+* @param supported_symbols - array of symbols to add
 
 ### Description:
 
-Add user to pool white list.
+Create socializer contract.
 
 ### Required Authorization:
 
-**owner of the pool** account.
+**payer** creator.
+
+### Zeus Example:
+
+```
+await socializerContractInstance.create(
+{
+    creator,
+    payouts: [
+        {
+            account: accounts[0],
+            percentage: '0.5' 
+        },
+        {
+            account: accounts[1],
+            percentage: '0.5' 
+        }
+    ],
+    supported_symbols: [
+        {sym:"4,NCO",contract:"eosio.token"}
+    ]
+}, {
+    authorization: `${creator}@active`,
+    broadcast: true,
+    sign: true,
+    keyProvider: [keys[0].active.privateKey],
+});
+```
+
+### cleos Example:
+
+```
+cleos -u https://nodeos.newcoin.org push transaction '{
+  "delay_sec": 0,
+  "max_cpu_usage_ms": 0,
+  "actions": [
+    {
+      "account": "social.nco",
+      "name": "create",
+      "data": {
+        "creator": "socialowner1",
+        "payouts": [
+          {
+            "account": "socialowner1",
+            "percentage": 0.5
+          },
+          {
+            "account": "socialowner2",
+            "percentage": 0.5
+          }
+        ],
+        "supported_symbols": [
+          {
+            "sym": "4,NCO",
+            "contract": "eosio.token"
+          }
+        ]
+      },
+      "authorization": [
+        {
+          "actor": "socialowner1",
+          "permission": "active"
+        }
+      ]
+    }
+  ]
+}'
+```
 
 ***
 
-# rmvFromWhiteList
+# withdraw
 
 ### Parameters:
-
-* @param pool_id - owner of account balance    
-* @param user - token symbol
+* @param owner - owner to withdraw tokens
+* @param symbols - symbol(s) of tokens to withdraw
 
 ### Description:
 
-Remove user from pool white list.
+Withdraw tokens from socializer.
 
 ### Required Authorization:
 
-**owner of the pool** account.
+**payer** owner.
+
+### Zeus Example:
+
+```
+await socializerContractInstance.withdraw(
+{
+    owner: creator,
+    symbols: [
+        {sym:"4,NCO",contract:"eosio.token"}
+    ]
+}, {
+    authorization: `${creator}@active`,
+    broadcast: true,
+    sign: true,
+    keyProvider: [keys[0].active.privateKey],
+});
+```
 
 ***
-
-# stakeToPool
-
-### Parameters:
-
-* @param from - sender account
-* @param quantity - quantity of tokens
-* @param pool_id - id of the pool
-
-### Description:
-
-Stake to the pool.
-
-### Required Authorization:
-
-**from** account.
-
-***
-
-# withdrawFromPool
-
-### Parameters:
-
-* @param owner - sender account
-* @param quantity - quantity of tokens
-
-### Description:
-
-Unstake from the pool.
-
-### Required Authorization:
-
-**owner** account.

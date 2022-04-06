@@ -1,6 +1,6 @@
-# newcoin.pools-js
+# newcoin.socializer-js
 
-JS Library to read data from newcoin.pools smart contract.
+JS Library to read data from newcoin.socializer smart contract.
 
 ## Usage
 
@@ -9,7 +9,7 @@ This is a [Node.js](https://nodejs.org/en/) module available through the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 ```sh
-npm i @newcoin-foundation/newcoin.pools-js
+npm i @newcoin-foundation/newcoin.socializer-js
 ```
 
 ### Initialize
@@ -18,10 +18,10 @@ Web library can be found in the [dist] folder
 
 ```javascript
 // Standard import
-const { ActionGenerator, RpcApi } = require("newcoinpools");
+const { ActionGenerator, RpcApi } = require("newcoinsocializer");
 
 // ES6 import
-import { ActionGenerator, RpcApi } from "newcoinpools"
+import { ActionGenerator, RpcApi } from "newcoinsocializer"
 ```
 
 ## Documentation
@@ -31,6 +31,4 @@ Uses only native nodeos calls to chain api plugin.
 
 ### ActionGenerator
 
-Helper class to construct contract actions  which can be pushed on chain with eosjs. 
-
-Detailed information about each action can be found [here](https://github.com/pinknetworkx/atomicassets-contract/wiki/Actions) 
+Helper class to construct contract actions  which can be pushed on chain with eosjs.
