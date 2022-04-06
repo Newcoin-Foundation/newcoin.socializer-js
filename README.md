@@ -18,15 +18,52 @@ Web library can be found in the [dist] folder
 
 ```javascript
 // Standard import
-const { ActionGenerator, RpcApi } = require("newcoinsocializer");
+const { ActionGenerator, RpcApi } = require("@newcoin-foundation/newcoin.socializer-js");
 
 // ES6 import
-import { ActionGenerator, RpcApi } from "newcoinsocializer"
+import { ActionGenerator, RpcApi } from "@newcoin-foundation/newcoin.socializer-js"
 ```
 
 ## Documentation
 
+```javascript
+const api = new RpcApi("https://nodeos.newcoin.org", "social.nco", fetch);
+const response = await api.getPayouts();
+const json = await response.json();
+console.log(json);
+```
+
+```javascript
+const generator = new ActionGenerator("social.nco");
+const authorization = { "socialowner1", "active" };
+const creator = "socialowner1";
+const payouts = [
+    {
+        "account": "socialowner1",
+        "percentage": 0.5
+    },
+    {
+        "account": "socialowner2",
+        "percentage": 0.5
+    }
+];
+const supported_symbols = [
+    {
+        "sym": "4,NCO",
+        "contract": "eosio.token"
+    }
+];
+const action = generator.create(
+    authorization,
+    creator,
+    payouts,
+    supported_symbols
+);
+console.log(action);
+```
+
 ### RpcAapi
+
 Uses only native nodeos calls to chain api plugin.
 
 ### ActionGenerator
