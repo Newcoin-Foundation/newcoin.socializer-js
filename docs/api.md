@@ -48,7 +48,6 @@ Return payouts object.
 ### Cleos Example:
 
 ```
-
 cleos -u https://nodeos.newcoin.org get table social.nco socialowner1 balances
 {
   "rows": [{

@@ -1,6 +1,6 @@
 {
   "name": "@newcoin-foundation/newcoin.socializer-js",
-  "version": "2.0.2",
+  "version": "1.0.0",
   "description": "js module to fetch data from the newcoin.socializer smart contract",
   "main": "dist/index.js",
   "scripts": {
