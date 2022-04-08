@@ -8,7 +8,7 @@
     "build:web": "webpack --config webpack.prod.js",
     "build": "yarn run build:npm && yarn run build:web",
     "test": "mocha -r ts-node/register test/**/*.test.ts",
-    "publish": "yarn build && yarn publish"
+    "publish": "yarn build && yarn publish --access public"
   },
   "repository": {
     "type": "git",
