@@ -30,12 +30,12 @@ import { ActionGenerator, RpcApi } from "@newcoin-foundation/newcoin.socializer-
 const api = new RpcApi("https://nodeos.newcoin.org", "social.nco", fetch);
 const response = await api.getPayouts();
 const json = await response.json();
-console.log(json);
+console.log(JSON.stringify(json));
 ```
 
 ```javascript
 const generator = new ActionGenerator("social.nco");
-const authorization = { "socialowner1", "active" };
+const authorization = { "account":"socialowner1", "permission":"active" };
 const creator = "socialowner1";
 const payouts = [
     {
@@ -59,7 +59,7 @@ const action = generator.create(
     payouts,
     supported_symbols
 );
-console.log(action);
+console.log(JSON.stringify(action));
 ```
 
 ### RpcAapi
